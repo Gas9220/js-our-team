@@ -32,7 +32,11 @@ function logAllMembersV2(teamMembers) {
 // Creo l'html di un singolo membro
 function createTeamMemberElement(member) {
     const memberDiv = document.createElement('div');
-    memberDiv.classList.add('member');
+    memberDiv.classList.add('col-4');
+
+    const memberImage = document.createElement('img');
+    memberImage.classList.add('img', 'w-100');
+    memberImage.src = "img/" + member.image
 
     const memberName = document.createElement('span');
     memberName.classList.add('name');
@@ -41,14 +45,8 @@ function createTeamMemberElement(member) {
     const memberRole = document.createElement('span');
     memberRole.classList.add('role');
     memberRole.innerHTML = member.role;
-
-    const memberImage = document.createElement('img');
-    memberImage.classList.add('img');
-    memberImage.src = "img/" + member.image
-
-    const divider = document.createElement('hr'); 
-
-    memberDiv.append(memberName, memberRole, memberImage, divider);
+    
+    memberDiv.append(memberImage, memberName, memberRole);
 
     return memberDiv
 }
@@ -64,7 +62,7 @@ function createTeamMemberElements(teamMembers, container) {
 //------------- END Funtions -------------------
 
 // Riferimenti HTML
-const container = document.querySelector('.container');
+const container = document.querySelector('.row');
 
 // Array che conterrà i membri
 let teamMembers = [];

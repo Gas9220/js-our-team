@@ -2,6 +2,6 @@ main .container div span {
     display: block;
 }
 
-main .container div img {
-    width: 5rem;
+main .container div {
+    padding: 1.25rem;
 }
