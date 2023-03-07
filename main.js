@@ -22,13 +22,49 @@ function logAllMembersV1(teamMember) {
     }
 }
 
+// Funzione che stampa in console tutte le proprietà di ogni membro ( fatta in modo diverso )
 function logAllMembersV2(teamMembers) {
     teamMembers.forEach(member => {
         console.log("V2", `The name of this member is ${member.name}. The role of this member is ${member.role}. Here is the photo link of the member ${member.image}`);  
     });
 }
 
+// Creo l'html di un singolo membro
+function createTeamMemberElement(member) {
+    const memberDiv = document.createElement('div');
+    memberDiv.classList.add('member');
+
+    const memberName = document.createElement('span');
+    memberName.classList.add('name');
+    memberName.innerHTML = member.name;
+
+    const memberRole = document.createElement('span');
+    memberRole.classList.add('role');
+    memberRole.innerHTML = member.role;
+
+    const memberImage = document.createElement('span');
+    memberImage.classList.add('img');
+    memberImage.innerHTML = member.image;
+
+    const divider = document.createElement('hr'); 
+
+    memberDiv.append(memberName, memberRole, memberImage, divider);
+
+    return memberDiv
+}
+
+// Creo l'html di tutti i membri
+function createTeamMemberElements(teamMembers, container) {
+    for (let index = 0; index < teamMembers.length; index++) {
+        const memberElement = createTeamMemberElement(teamMembers[index]);
+        container.append(memberElement);
+    }
+}
+
 //------------- END Funtions -------------------
+
+// Riferimenti HTML
+const container = document.querySelector('.container');
 
 // Array che conterrà i membri
 let teamMembers = [];
@@ -49,4 +85,7 @@ teamMembers.push(wayneBarret, angelaCaroll, walterGordon, angelaLopez, scottEstr
 // Stampo in console tutte le proprietà di ogni membro
 logAllMembersV1(teamMembers);
 logAllMembersV2(teamMembers);
+
+// Riempio il container con i membri
+createTeamMemberElements(teamMembers, container);
 
