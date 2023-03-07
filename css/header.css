@@ -1,7 +1,7 @@
-main .container div span {
-    display: block;
+header nav {
+    background-color: rgb(0, 21, 51);
 }
 
-main .container div img {
-    width: 5rem;
+#logo {
+    width: 3.125rem;
 }
