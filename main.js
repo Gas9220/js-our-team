@@ -1,5 +1,7 @@
 'use strict';
 
+//------------- Funtions -------------------
+
 // Funzione che facilita la creazione di un singolo membro
 function createTeamMember(name, role, image) {
     let teamMember = {
@@ -8,10 +10,27 @@ function createTeamMember(name, role, image) {
         image: image
     }
 
-    console.log("createTeamMember", teamMember);
+    //console.log("createTeamMember", teamMember);
 
     return teamMember;
 }
+
+// Funzione che stampa in console tutte le proprietà di ogni membro
+function logAllMembersV1(teamMember) {
+    for (let i = 0; i < teamMember.length; i++) {
+        for (let key in teamMember[i]) {
+            console.log(teamMember[i][key]);
+        }
+    }
+}
+
+function logAllMembersV2(teamMembers) {
+    teamMembers.forEach(member => {
+        console.log("V2", `The name of this member is ${member.name}. The role of this member is ${member.role}. Here is the photo link of the member ${member.image}`);  
+    });
+}
+
+//------------- END Funtions -------------------
 
 // Array che conterrà i membri
 let teamMembers = [];
@@ -27,5 +46,9 @@ let barbaraRamos = createTeamMember("Barbara Ramos", "Graphic Designer", "barbar
 // Aggiungo i membri all'array
 teamMembers.push(wayneBarret, angelaCaroll, walterGordon, angelaLopez, scottEstrada, barbaraRamos);
 
-console.log("teamMembers", teamMembers);
+//console.log("teamMembers", teamMembers);
+
+// Stampo in console tutte le proprietà di ogni membro
+logAllMembersV1(teamMembers);
+logAllMembersV2(teamMembers);
 
