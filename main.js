@@ -18,9 +18,7 @@ function createTeamMember(name, role, image) {
 // Funzione che stampa in console tutte le proprietà di ogni membro
 function logAllMembersV1(teamMember) {
     for (let i = 0; i < teamMember.length; i++) {
-        for (let key in teamMember[i]) {
-            console.log(teamMember[i][key]);
-        }
+        console.log("V1", `The name of this member is ${teamMember[i].name}. The role of this member is ${teamMember[i].role}. Here is the photo link of the member ${teamMember[i].image}`);  
     }
 }
 
