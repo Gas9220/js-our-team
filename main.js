@@ -34,8 +34,11 @@ function createTeamMemberElement(member) {
     const memberDiv = document.createElement('div');
     memberDiv.classList.add('col-4');
 
+    const containerDiv = document.createElement('div');
+    containerDiv.classList.add('card', 'rounded-5');
+
     const memberImage = document.createElement('img');
-    memberImage.classList.add('img', 'w-100');
+    memberImage.classList.add('img', 'w-100', 'rounded-5', 'mb-2');
     memberImage.src = "img/" + member.image
 
     const memberName = document.createElement('span');
@@ -45,8 +48,9 @@ function createTeamMemberElement(member) {
     const memberRole = document.createElement('span');
     memberRole.classList.add('role');
     memberRole.innerHTML = member.role;
-    
-    memberDiv.append(memberImage, memberName, memberRole);
+
+    memberDiv.append(containerDiv);
+    containerDiv.append(memberImage, memberName, memberRole);
 
     return memberDiv
 }

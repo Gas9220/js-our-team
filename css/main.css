@@ -2,6 +2,19 @@ main .container div span {
     display: block;
 }
 
+main .container div span.name {
+    font-weight: bold;
+}
+
+main .container div span.role {
+    font-weight:lighter;
+}
+
 main .container div {
     padding: 1.25rem;
 }
+
+.card {
+    background-color: rgb(25, 43, 70);
+}
+
